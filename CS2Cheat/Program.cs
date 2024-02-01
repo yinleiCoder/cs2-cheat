@@ -27,6 +27,8 @@ while (true)
     // 获取玩家index
     int entIndex = swed.ReadInt(localPlayerPawn, 0x1544);
     Console.WriteLine($"Tip · 已瞄准敌人，敌人ID为：{entIndex} ");
+    // 获取玩家的闪光弹持续时间
+    float flashDuration = swed.ReadFloat(localPlayerPawn, 0x145C);
 
     if(GetAsyncKeyState(SPACE_BAR) < 0)
     {
@@ -50,6 +52,12 @@ while (true)
             Thread.Sleep(1);
             swed.WriteInt(forceAttack,  MINUS_ATTACK);
         }
+    }
+
+    // 更改闪光弹的持续时间
+    if(flashDuration > 0)
+    {
+        swed.WriteFloat(localPlayerPawn, 0x145C, 0);
     }
 
     Thread.Sleep(2);
