@@ -3,15 +3,16 @@
 ## Features
 
 - 玩家连跳
-- 
+- 玩家自动开枪
 
 ## Notices
 
 - Change **LAUNCH OPTIONS**  with `-insecure` mode
 - VisualStudio 2022: Platform target `x64` because cs2 platform
 - Offsets:
-	- https://github.com/a2x/cs2-dumper/blob/main/generated/offsets.cs
-	- https://github.com/a2x/cs2-dumper/blob/main/generated/client.dll.cs
+	- [offsets](https://github.com/a2x/cs2-dumper/blob/main/generated/offsets.cs)
+	- [client.dll](https://github.com/a2x/cs2-dumper/blob/main/generated/client.dll.cs)
 - NuGet Package:
 	- swed64	
+- [Visual Key Code](https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes)
 - and so on

@@ -10,16 +10,23 @@ const uint STANDING = 65665;// 站立
 const uint CROUCHING = 65667;// 蹲伏
 const uint PLUS_JUMP = 65537;// +jump
 const uint MINUS_JUMP = 256;// -jump
+const int PLUS_ATTACK = 65537;// +attack
+const int MINUS_ATTACK = 256;// -attack
 
 IntPtr client = swed.GetModuleBase("client.dll");
-IntPtr forceJumpAddress = client + 0x16CE390;
+IntPtr forceJump = client + 0x16CE390;
+IntPtr forceAttack = client + 0x16CDE80; 
 
 while (true)
 {
+    Console.Clear();
     // 获取本地玩家地址
-    IntPtr playerPawnAddress = swed.ReadPointer(client, 0x16D4F48);
+    IntPtr localPlayerPawn = swed.ReadPointer(client, 0x16D4F48);
     // 获取本地玩家的Flag
-    uint fFlag = swed.ReadUInt(playerPawnAddress, 0x3C8);
+    uint fFlag = swed.ReadUInt(localPlayerPawn, 0x3C8);
+    // 获取玩家index
+    int entIndex = swed.ReadInt(localPlayerPawn, 0x1544);
+    Console.WriteLine($"Tip · 已瞄准敌人，敌人ID为：{entIndex} ");
 
     if(GetAsyncKeyState(SPACE_BAR) < 0)
     {
@@ -27,14 +34,25 @@ while (true)
         if(fFlag == STANDING || fFlag == CROUCHING)
         {
             Thread.Sleep(1);
-            swed.WriteUInt(forceJumpAddress, PLUS_JUMP);
+            swed.WriteUInt(forceJump, PLUS_JUMP);
         } else
         {
-            swed.WriteUInt(forceJumpAddress, MINUS_JUMP);
+            swed.WriteUInt(forceJump, MINUS_JUMP);
         }
     }
 
-    Thread.Sleep(5);
+    if( GetAsyncKeyState(0x5) < 0)
+    {
+        // 如果有敌人在准星前就开枪
+        if(entIndex > 0)
+        {
+            swed.WriteInt(forceAttack,  PLUS_ATTACK);
+            Thread.Sleep(1);
+            swed.WriteInt(forceAttack,  MINUS_ATTACK);
+        }
+    }
+
+    Thread.Sleep(2);
 }
 
 /// 处理按键
