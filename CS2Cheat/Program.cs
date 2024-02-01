@@ -15,7 +15,13 @@ const int MINUS_ATTACK = 256;// -attack
 
 IntPtr client = swed.GetModuleBase("client.dll");
 IntPtr forceJump = client + 0x16CE390;
-IntPtr forceAttack = client + 0x16CDE80; 
+IntPtr forceAttack = client + 0x16CDE80;
+
+int dwEntityList = 0x17CE6A0;
+int m_hPlayerPawn = 0x7EC;
+int m_iHealth = 0x32C;
+int m_iszPlayerName = 0x640;
+
 
 while (true)
 {
@@ -29,8 +35,31 @@ while (true)
     Console.WriteLine($"Tip · 已瞄准敌人，敌人ID为：{entIndex} ");
     // 获取玩家的闪光弹持续时间
     float flashDuration = swed.ReadFloat(localPlayerPawn, 0x145C);
+    // 获取entity列表地址
+    IntPtr entityList = swed.ReadPointer(client, dwEntityList);
+    // 获取entity列表的控制器
+    IntPtr listEntry = swed.ReadPointer(entityList, 0x10);
 
-    if(GetAsyncKeyState(SPACE_BAR) < 0)
+    for(int i=0; i < 64; i++)
+    {
+        if(listEntry == IntPtr.Zero) { continue; }
+        // 获取当前entity的控制器
+        IntPtr currentController = swed.ReadPointer(listEntry, i * 0x78);
+        if (currentController == IntPtr.Zero) { continue; }
+        // 获取当前entity的pawnHandle
+        int pawnHandle = swed.ReadInt(currentController, m_hPlayerPawn);
+        if (pawnHandle == 0) { continue; }
+        // 获取当前entity的pawn
+        IntPtr listEntry2 = swed.ReadPointer(entityList, 0x8 * ((pawnHandle & 0x7FFF) >> 9) + 0x10);
+        IntPtr currentPawn = swed.ReadPointer(listEntry2, 0x78 * (pawnHandle & 0x1FF));
+        // 读取entity相关数据
+        uint health = swed.ReadUInt(currentPawn, m_iHealth);
+        string name = swed.ReadString(currentController, m_iszPlayerName, 25);
+
+        Console.WriteLine($"Tip · 玩家{name}当前剩余血量: {health}");
+    }
+
+    if (GetAsyncKeyState(SPACE_BAR) < 0)
     {
         // 玩家在地面就跳越
         if(fFlag == STANDING || fFlag == CROUCHING)
@@ -53,6 +82,8 @@ while (true)
             swed.WriteInt(forceAttack,  MINUS_ATTACK);
         }
     }
+
+
 
     // 更改闪光弹的持续时间
     if(flashDuration > 0)
