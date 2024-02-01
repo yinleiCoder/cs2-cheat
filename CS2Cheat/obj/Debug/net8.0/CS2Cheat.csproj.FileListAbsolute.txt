@@ -1,0 +1,15 @@
+E:\VisualStudioProjects\CS2Cheat\CS2Cheat\bin\Debug\net8.0\CS2Cheat.exe
+E:\VisualStudioProjects\CS2Cheat\CS2Cheat\bin\Debug\net8.0\CS2Cheat.deps.json
+E:\VisualStudioProjects\CS2Cheat\CS2Cheat\bin\Debug\net8.0\CS2Cheat.runtimeconfig.json
+E:\VisualStudioProjects\CS2Cheat\CS2Cheat\bin\Debug\net8.0\CS2Cheat.dll
+E:\VisualStudioProjects\CS2Cheat\CS2Cheat\bin\Debug\net8.0\CS2Cheat.pdb
+E:\VisualStudioProjects\CS2Cheat\CS2Cheat\obj\Debug\net8.0\CS2Cheat.GeneratedMSBuildEditorConfig.editorconfig
+E:\VisualStudioProjects\CS2Cheat\CS2Cheat\obj\Debug\net8.0\CS2Cheat.AssemblyInfoInputs.cache
+E:\VisualStudioProjects\CS2Cheat\CS2Cheat\obj\Debug\net8.0\CS2Cheat.AssemblyInfo.cs
+E:\VisualStudioProjects\CS2Cheat\CS2Cheat\obj\Debug\net8.0\CS2Cheat.csproj.CoreCompileInputs.cache
+E:\VisualStudioProjects\CS2Cheat\CS2Cheat\obj\Debug\net8.0\CS2Cheat.sourcelink.json
+E:\VisualStudioProjects\CS2Cheat\CS2Cheat\obj\Debug\net8.0\CS2Cheat.dll
+E:\VisualStudioProjects\CS2Cheat\CS2Cheat\obj\Debug\net8.0\refint\CS2Cheat.dll
+E:\VisualStudioProjects\CS2Cheat\CS2Cheat\obj\Debug\net8.0\CS2Cheat.pdb
+E:\VisualStudioProjects\CS2Cheat\CS2Cheat\obj\Debug\net8.0\CS2Cheat.genruntimeconfig.cache
+E:\VisualStudioProjects\CS2Cheat\CS2Cheat\obj\Debug\net8.0\ref\CS2Cheat.dll
