@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="ClickableTransparentOverlay" Version="9.3.0" />
     <PackageReference Include="swed64" Version="1.0.5" />
   </ItemGroup>
 

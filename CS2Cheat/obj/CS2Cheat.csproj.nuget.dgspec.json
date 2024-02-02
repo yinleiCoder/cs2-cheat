@@ -40,6 +40,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "ClickableTransparentOverlay": {
+              "target": "Package",
+              "version": "[9.3.0, )"
+            },
             "swed64": {
               "target": "Package",
               "version": "[1.0.5, )"

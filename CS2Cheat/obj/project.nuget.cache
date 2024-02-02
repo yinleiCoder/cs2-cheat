@@ -1,10 +1,23 @@
 {
   "version": 2,
-  "dgSpecHash": "UJcdm9yzWyuwcFMjTlMQy4JYpm/81G1ZiDXiTh1JEyaECsXczF1i/Gd18ES+MCjwHij+Dm7TcCmmusf6WnAs5w==",
+  "dgSpecHash": "yytHH0AJAX+j1NzIT2WT/xAZHXQByubE2d0oy0tWpZPnH4TuTGfpacgHcyQKsyQB9ZZV7tjRGrypuDQf8QRoOg==",
   "success": true,
   "projectFilePath": "E:\\VisualStudioProjects\\CS2Cheat\\CS2Cheat\\CS2Cheat.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\10991\\.nuget\\packages\\swed64\\1.0.5\\swed64.1.0.5.nupkg.sha512"
+    "C:\\Users\\10991\\.nuget\\packages\\clickabletransparentoverlay\\9.3.0\\clickabletransparentoverlay.9.3.0.nupkg.sha512",
+    "C:\\Users\\10991\\.nuget\\packages\\imgui.net\\1.90.1.1\\imgui.net.1.90.1.1.nupkg.sha512",
+    "C:\\Users\\10991\\.nuget\\packages\\sharpgen.runtime\\2.1.2-beta\\sharpgen.runtime.2.1.2-beta.nupkg.sha512",
+    "C:\\Users\\10991\\.nuget\\packages\\sharpgen.runtime.com\\2.1.2-beta\\sharpgen.runtime.com.2.1.2-beta.nupkg.sha512",
+    "C:\\Users\\10991\\.nuget\\packages\\sixlabors.imagesharp\\3.1.2\\sixlabors.imagesharp.3.1.2.nupkg.sha512",
+    "C:\\Users\\10991\\.nuget\\packages\\swed64\\1.0.5\\swed64.1.0.5.nupkg.sha512",
+    "C:\\Users\\10991\\.nuget\\packages\\system.buffers\\4.4.0\\system.buffers.4.4.0.nupkg.sha512",
+    "C:\\Users\\10991\\.nuget\\packages\\system.numerics.vectors\\4.4.0\\system.numerics.vectors.4.4.0.nupkg.sha512",
+    "C:\\Users\\10991\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.4.0\\system.runtime.compilerservices.unsafe.4.4.0.nupkg.sha512",
+    "C:\\Users\\10991\\.nuget\\packages\\vortice.d3dcompiler\\3.3.4\\vortice.d3dcompiler.3.3.4.nupkg.sha512",
+    "C:\\Users\\10991\\.nuget\\packages\\vortice.direct3d11\\3.3.4\\vortice.direct3d11.3.3.4.nupkg.sha512",
+    "C:\\Users\\10991\\.nuget\\packages\\vortice.directx\\3.3.4\\vortice.directx.3.3.4.nupkg.sha512",
+    "C:\\Users\\10991\\.nuget\\packages\\vortice.dxgi\\3.3.4\\vortice.dxgi.3.3.4.nupkg.sha512",
+    "C:\\Users\\10991\\.nuget\\packages\\vortice.mathematics\\1.7.2\\vortice.mathematics.1.7.2.nupkg.sha512"
   ],
   "logs": []
 }
