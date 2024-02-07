@@ -8,28 +8,28 @@
     ".NETCoreApp,Version=v8.0": {
       "CS2Cheat/1.0.0": {
         "dependencies": {
-          "ClickableTransparentOverlay": "9.3.0",
+          "ClickableTransparentOverlay": "9.1.0",
           "swed64": "1.0.5"
         },
         "runtime": {
           "CS2Cheat.dll": {}
         }
       },
-      "ClickableTransparentOverlay/9.3.0": {
+      "ClickableTransparentOverlay/9.1.0": {
         "dependencies": {
-          "ImGui.NET": "1.90.1.1",
-          "SixLabors.ImageSharp": "3.1.2",
+          "ImGui.NET": "1.90.0.1",
+          "SixLabors.ImageSharp": "3.0.2",
           "Vortice.D3DCompiler": "3.3.4",
           "Vortice.Direct3D11": "3.3.4"
         },
         "runtime": {
           "lib/net7.0/ClickableTransparentOverlay.dll": {
-            "assemblyVersion": "9.3.0.0",
-            "fileVersion": "9.3.0.0"
+            "assemblyVersion": "9.1.0.0",
+            "fileVersion": "9.1.0.0"
           }
         }
       },
-      "ImGui.NET/1.90.1.1": {
+      "ImGui.NET/1.90.0.1": {
         "dependencies": {
           "System.Buffers": "4.4.0",
           "System.Numerics.Vectors": "4.4.0",
@@ -37,8 +37,8 @@
         },
         "runtime": {
           "lib/net6.0/ImGui.NET.dll": {
-            "assemblyVersion": "1.90.1.1",
-            "fileVersion": "1.90.1.1"
+            "assemblyVersion": "1.90.0.1",
+            "fileVersion": "1.90.0.1"
           }
         },
         "runtimeTargets": {
@@ -88,11 +88,11 @@
           }
         }
       },
-      "SixLabors.ImageSharp/3.1.2": {
+      "SixLabors.ImageSharp/3.0.2": {
         "runtime": {
           "lib/net6.0/SixLabors.ImageSharp.dll": {
             "assemblyVersion": "3.0.0.0",
-            "fileVersion": "3.1.2.0"
+            "fileVersion": "3.0.2.0"
           }
         }
       },
@@ -178,19 +178,19 @@
       "serviceable": false,
       "sha512": ""
     },
-    "ClickableTransparentOverlay/9.3.0": {
+    "ClickableTransparentOverlay/9.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-DxhW1jh50MRyZZtSKmKUjxg8ik0rvCxnUMc22UjOHLlVQtFaxS8QOIYLjEed4X+CCsl0VXJybNlvBxJisZX83Q==",
-      "path": "clickabletransparentoverlay/9.3.0",
-      "hashPath": "clickabletransparentoverlay.9.3.0.nupkg.sha512"
+      "sha512": "sha512-YkQVrzx5pBlkDPb498S/a3/oQLpfVpvF34XTqM7pEBLT5OZK4vZ85AOwHZGf23w6KBxwSx78lOfY+zzzEBEhGA==",
+      "path": "clickabletransparentoverlay/9.1.0",
+      "hashPath": "clickabletransparentoverlay.9.1.0.nupkg.sha512"
     },
-    "ImGui.NET/1.90.1.1": {
+    "ImGui.NET/1.90.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-/VNgkRywtXV72cpxtBj09nZX9Yx+xG3NxiwEEXPVcK+pHKHA31cPJKy425tDGj68tgRbCS+C+DG8puBj3iJ4zA==",
-      "path": "imgui.net/1.90.1.1",
-      "hashPath": "imgui.net.1.90.1.1.nupkg.sha512"
+      "sha512": "sha512-ZhEN7SKx5e9bbWY5BR2tNdbl7W4cJXaESwFRGo6p2pUSM9Y8yxtWq2zM4Qf8a8HYCmblHuFWtp8YcZiWlcJ3ZQ==",
+      "path": "imgui.net/1.90.0.1",
+      "hashPath": "imgui.net.1.90.0.1.nupkg.sha512"
     },
     "SharpGen.Runtime/2.1.2-beta": {
       "type": "package",
@@ -206,12 +206,12 @@
       "path": "sharpgen.runtime.com/2.1.2-beta",
       "hashPath": "sharpgen.runtime.com.2.1.2-beta.nupkg.sha512"
     },
-    "SixLabors.ImageSharp/3.1.2": {
+    "SixLabors.ImageSharp/3.0.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-PYdR6GUI+gW6LBaAQKTik0Ai8oLpFAz3a/KrVusxoTg3kf7F3cuIqKMhJGsuQcmDHCF+iD81Pyn4cexyHrb1ZA==",
-      "path": "sixlabors.imagesharp/3.1.2",
-      "hashPath": "sixlabors.imagesharp.3.1.2.nupkg.sha512"
+      "sha512": "sha512-PlwUHnLZ67G1i0xXDYQJYbFiJsvXiEFWtKdV0QvY9j+dFasYbl+vWXXY42/asTsNjchsH5BLuoRzlf8Fa8lzpg==",
+      "path": "sixlabors.imagesharp/3.0.2",
+      "hashPath": "sixlabors.imagesharp.3.0.2.nupkg.sha512"
     },
     "swed64/1.0.5": {
       "type": "package",

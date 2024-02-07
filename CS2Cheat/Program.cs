@@ -2,15 +2,21 @@
 using System.Numerics;
 using Swed64;
 using CS2Cheat;
+using System.Drawing;
 
 // 初始化内存管理
 Swed swed = new Swed("cs2");
+
 // 寻找基址
 IntPtr client = swed.GetModuleBase("client.dll");
 
 // 初始化ImGui
-Renderer renderer = new Renderer(); 
-renderer.Start().Wait();
+Renderer renderer = new Renderer();
+// 屏幕尺寸
+Vector2 screenSize = renderer.screenSize;
+Thread renderThread = new Thread(new ThreadStart(renderer.Start().Wait));
+renderThread.Start();
+
 
 // entity初始化
 Entity localPlayer = new Entity();
@@ -26,10 +32,9 @@ const int MINUS_ATTACK = 256;// -attack
 IntPtr forceJump = client + 0x16CE390;// 跳
 IntPtr forceAttack = client + 0x16CDE80;// 攻击
 
-
 while (true)
 {
-    Console.Clear();
+    //Console.Clear();
     entities.Clear();
 
     IntPtr entityList = swed.ReadPointer(client, Offsets.dwEntityList);
@@ -39,8 +44,8 @@ while (true)
     // 读取并更新本地玩家的信息
     localPlayer.pawnAddress = swed.ReadPointer(client, Offsets.dwLocalPlayerPawn);
     localPlayer.team = swed.ReadInt(localPlayer.pawnAddress, Offsets.m_iTeamNum);
-    localPlayer.origin = swed.ReadVec(localPlayer.pawnAddress, Offsets.m_vOldOrigin);
-    localPlayer.view = swed.ReadVec(localPlayer.pawnAddress, Offsets.m_vecViewOffset);
+    localPlayer.position = swed.ReadVec(localPlayer.pawnAddress, Offsets.m_vOldOrigin);
+    localPlayer.viewOffset = swed.ReadVec(localPlayer.pawnAddress, Offsets.m_vecViewOffset);
 
     // 遍历所有的entity
     for (int i = 0; i < 64; i++)
@@ -49,54 +54,65 @@ while (true)
         // 获取当前entity的控制器
         IntPtr currentController = swed.ReadPointer(listEntry, i * 0x78);
         // 是本地玩家（我）就跳过
-        if (currentController == localPlayer.pawnAddress) { continue; }
+        //if (currentController == localPlayer.pawnAddress) { continue; }
         // 获取当前entity的pawnHandle
         int pawnHandle = swed.ReadInt(currentController, Offsets.m_hPlayerPawn);
         if (pawnHandle == 0) { continue; }
         // 获取当前entity的pawn
         IntPtr listEntry2 = swed.ReadPointer(entityList, 0x8 * ((pawnHandle & 0x7FFF) >> 9) + 0x10);
+        if (listEntry == IntPtr.Zero) { continue; }
         IntPtr currentPawn = swed.ReadPointer(listEntry2, 0x78 * (pawnHandle & 0x1FF));
-        // 读取entity相关数据
-        int health = swed.ReadInt(currentPawn, Offsets.m_iHealth);
-        int team = swed.ReadInt(currentPawn, Offsets.m_iTeamNum);
+        if (currentPawn == IntPtr.Zero) { continue; }
         uint lifeState = swed.ReadUInt(currentPawn, Offsets.m_lifeState);
-        string name = swed.ReadString(currentController, Offsets.m_iszPlayerName, 25);
         // 当前玩家死亡或未知
         if(lifeState != 256)
         {
             continue;
         }
-        // 队友且设置了不攻击队友
-        if(team == localPlayer.team && !renderer.aimOnTeam)
-        {
-            continue;
-        }
+        // 获取矩阵
+        float[] viewMatrix = swed.ReadMatrix(client + Offsets.dwViewMatrix);
+        // 读取entity相关数据
+        int team = swed.ReadInt(currentPawn, Offsets.m_iTeamNum);
+        int health = swed.ReadInt(currentPawn, Offsets.m_iHealth);
+        string name = swed.ReadString(currentController, Offsets.m_iszPlayerName, 25);
+        //// 队友且设置了不攻击队友
+        //if (team == localPlayer.team && !renderer.aimOnTeam)
+        //{
+        //    continue;
+        //}
         // 收集所有敌人的信息
         Entity entity = new Entity();
         entity.pawnAddress = currentPawn;
         entity.name = name;
         entity.health = health;
         entity.lifeState  = lifeState;
-        entity.origin = swed.ReadVec(currentPawn, Offsets.m_vOldOrigin);
-        entity.view = swed.ReadVec(currentPawn, Offsets.m_vecViewOffset);
-        entity.distance = Vector3.Distance(entity.origin, localPlayer.origin);
+        entity.position = swed.ReadVec(currentPawn, Offsets.m_vOldOrigin);
+        entity.viewOffset = swed.ReadVec(currentPawn, Offsets.m_vecViewOffset);
+        entity.distance = Vector3.Distance(entity.position, localPlayer.position);
+        entity.position2D = Calculate.WorldToScreen(viewMatrix, entity.position, screenSize);
+        entity.viewPosition2D = Calculate.WorldToScreen(viewMatrix, Vector3.Add(entity.position, entity.viewOffset), screenSize);
         entities.Add(entity);
 
-        // 控制台打印格式
-        Console.ForegroundColor = ConsoleColor.Yellow;
-        if(team != localPlayer.team)
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-        }
-        Console.WriteLine($"Tip · 玩家{name}，还剩 {health} 点血, 距离我 {(int)(entity.distance) /100} 远");
-        Console.ResetColor();
+        //// 控制台打印格式
+        //Console.ForegroundColor = ConsoleColor.Yellow;
+        //if(team != localPlayer.team)
+        //{
+        //    Console.ForegroundColor = ConsoleColor.Red;
+        //}
+        //Console.WriteLine($"Tip · 玩家{name}，还剩 {health} 点血, 距离我 {(int)(entity.distance) /100} 远");
+        //Console.ResetColor();
     }
 
-    entities = entities.OrderBy(o => o.distance).ToList();
+    // 将数据送给渲染线程去渲染
+    renderer.UpdateLocalPlayer(localPlayer);
+    renderer.UpdateEntities(entities);
+
+    // 按下鼠标辅助键进行开挂
     if(entities.Count > 0 && GetAsyncKeyState(HOTKEY) < 0 && renderer.aimbot)
     {
-        Vector3 playerView = Vector3.Add(localPlayer.origin, localPlayer.view);
-        Vector3 entityView = Vector3.Add(entities[0].origin, entities[0].view);
+        entities = entities.OrderBy(o => o.distance).ToList();
+        Vector3 playerView = Vector3.Add(localPlayer.position, localPlayer.viewOffset);
+        Vector3 entityView = Vector3.Add(entities[0].position, entities[0].viewOffset);
 
         // 计算真实世界的3d角度转换到游戏中的小地图2d坐标
         Vector2 newAngles = Calculate.CalculateAngles(playerView, entityView);
@@ -109,13 +125,10 @@ while (true)
         swed.WriteInt(forceAttack, MINUS_ATTACK);
     }
 
-    Thread.Sleep(10);
+    //Thread.Sleep(2);
 }
 
 /**
-while (true)
-{
-    Console.Clear();
     // 获取本地玩家地址
     IntPtr localPlayerPawn = swed.ReadPointer(client, 0x16D4F48);
     // 获取本地玩家的Flag
@@ -148,9 +161,6 @@ while (true)
     {
         swed.WriteFloat(localPlayerPawn, 0x145C, 0);
     }
-
-    Thread.Sleep(2);
-}
 */
 
 /// 处理按键

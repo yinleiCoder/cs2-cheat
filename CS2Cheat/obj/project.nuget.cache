@@ -1,14 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "yytHH0AJAX+j1NzIT2WT/xAZHXQByubE2d0oy0tWpZPnH4TuTGfpacgHcyQKsyQB9ZZV7tjRGrypuDQf8QRoOg==",
+  "dgSpecHash": "PM3M0y/RCHzuwo2YpmFKbbD8M+esAmhj005D3NkmoAB3ZIh6w/Nqzu5+e+8YFvVekUpcT5gdaDgS4+v/K3SUtg==",
   "success": true,
   "projectFilePath": "E:\\VisualStudioProjects\\CS2Cheat\\CS2Cheat\\CS2Cheat.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\10991\\.nuget\\packages\\clickabletransparentoverlay\\9.3.0\\clickabletransparentoverlay.9.3.0.nupkg.sha512",
-    "C:\\Users\\10991\\.nuget\\packages\\imgui.net\\1.90.1.1\\imgui.net.1.90.1.1.nupkg.sha512",
+    "C:\\Users\\10991\\.nuget\\packages\\clickabletransparentoverlay\\9.1.0\\clickabletransparentoverlay.9.1.0.nupkg.sha512",
+    "C:\\Users\\10991\\.nuget\\packages\\imgui.net\\1.90.0.1\\imgui.net.1.90.0.1.nupkg.sha512",
     "C:\\Users\\10991\\.nuget\\packages\\sharpgen.runtime\\2.1.2-beta\\sharpgen.runtime.2.1.2-beta.nupkg.sha512",
     "C:\\Users\\10991\\.nuget\\packages\\sharpgen.runtime.com\\2.1.2-beta\\sharpgen.runtime.com.2.1.2-beta.nupkg.sha512",
-    "C:\\Users\\10991\\.nuget\\packages\\sixlabors.imagesharp\\3.1.2\\sixlabors.imagesharp.3.1.2.nupkg.sha512",
+    "C:\\Users\\10991\\.nuget\\packages\\sixlabors.imagesharp\\3.0.2\\sixlabors.imagesharp.3.0.2.nupkg.sha512",
     "C:\\Users\\10991\\.nuget\\packages\\swed64\\1.0.5\\swed64.1.0.5.nupkg.sha512",
     "C:\\Users\\10991\\.nuget\\packages\\system.buffers\\4.4.0\\system.buffers.4.4.0.nupkg.sha512",
     "C:\\Users\\10991\\.nuget\\packages\\system.numerics.vectors\\4.4.0\\system.numerics.vectors.4.4.0.nupkg.sha512",

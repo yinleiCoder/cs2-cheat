@@ -2,11 +2,11 @@
   "version": 3,
   "targets": {
     "net8.0": {
-      "ClickableTransparentOverlay/9.3.0": {
+      "ClickableTransparentOverlay/9.1.0": {
         "type": "package",
         "dependencies": {
-          "ImGui.NET": "1.90.1.1",
-          "SixLabors.ImageSharp": "3.1.2",
+          "ImGui.NET": "1.90.0.1",
+          "SixLabors.ImageSharp": "3.0.2",
           "Vortice.D3DCompiler": "3.3.4",
           "Vortice.Direct3D11": "3.3.4"
         },
@@ -17,7 +17,7 @@
           "lib/net7.0/ClickableTransparentOverlay.dll": {}
         }
       },
-      "ImGui.NET/1.90.1.1": {
+      "ImGui.NET/1.90.0.1": {
         "type": "package",
         "dependencies": {
           "System.Buffers": "4.4.0",
@@ -90,7 +90,7 @@
           "buildMultiTargeting/_._": {}
         }
       },
-      "SixLabors.ImageSharp/3.1.2": {
+      "SixLabors.ImageSharp/3.0.2": {
         "type": "package",
         "compile": {
           "lib/net6.0/SixLabors.ImageSharp.dll": {
@@ -261,28 +261,28 @@
     }
   },
   "libraries": {
-    "ClickableTransparentOverlay/9.3.0": {
-      "sha512": "DxhW1jh50MRyZZtSKmKUjxg8ik0rvCxnUMc22UjOHLlVQtFaxS8QOIYLjEed4X+CCsl0VXJybNlvBxJisZX83Q==",
+    "ClickableTransparentOverlay/9.1.0": {
+      "sha512": "YkQVrzx5pBlkDPb498S/a3/oQLpfVpvF34XTqM7pEBLT5OZK4vZ85AOwHZGf23w6KBxwSx78lOfY+zzzEBEhGA==",
       "type": "package",
-      "path": "clickabletransparentoverlay/9.3.0",
+      "path": "clickabletransparentoverlay/9.1.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE",
-        "clickabletransparentoverlay.9.3.0.nupkg.sha512",
+        "clickabletransparentoverlay.9.1.0.nupkg.sha512",
         "clickabletransparentoverlay.nuspec",
         "lib/net7.0/ClickableTransparentOverlay.dll"
       ]
     },
-    "ImGui.NET/1.90.1.1": {
-      "sha512": "/VNgkRywtXV72cpxtBj09nZX9Yx+xG3NxiwEEXPVcK+pHKHA31cPJKy425tDGj68tgRbCS+C+DG8puBj3iJ4zA==",
+    "ImGui.NET/1.90.0.1": {
+      "sha512": "ZhEN7SKx5e9bbWY5BR2tNdbl7W4cJXaESwFRGo6p2pUSM9Y8yxtWq2zM4Qf8a8HYCmblHuFWtp8YcZiWlcJ3ZQ==",
       "type": "package",
-      "path": "imgui.net/1.90.1.1",
+      "path": "imgui.net/1.90.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "build/net40/ImGui.NET.targets",
-        "imgui.net.1.90.1.1.nupkg.sha512",
+        "imgui.net.1.90.0.1.nupkg.sha512",
         "imgui.net.nuspec",
         "lib/net6.0/ImGui.NET.dll",
         "lib/net6.0/ImGui.NET.xml",
@@ -337,10 +337,10 @@
         "sharpgen.runtime.com.nuspec"
       ]
     },
-    "SixLabors.ImageSharp/3.1.2": {
-      "sha512": "PYdR6GUI+gW6LBaAQKTik0Ai8oLpFAz3a/KrVusxoTg3kf7F3cuIqKMhJGsuQcmDHCF+iD81Pyn4cexyHrb1ZA==",
+    "SixLabors.ImageSharp/3.0.2": {
+      "sha512": "PlwUHnLZ67G1i0xXDYQJYbFiJsvXiEFWtKdV0QvY9j+dFasYbl+vWXXY42/asTsNjchsH5BLuoRzlf8Fa8lzpg==",
       "type": "package",
-      "path": "sixlabors.imagesharp/3.1.2",
+      "path": "sixlabors.imagesharp/3.0.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -349,7 +349,7 @@
         "lib/net6.0/SixLabors.ImageSharp.dll",
         "lib/net6.0/SixLabors.ImageSharp.xml",
         "sixlabors.imagesharp.128.png",
-        "sixlabors.imagesharp.3.1.2.nupkg.sha512",
+        "sixlabors.imagesharp.3.0.2.nupkg.sha512",
         "sixlabors.imagesharp.nuspec"
       ]
     },
@@ -567,7 +567,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "ClickableTransparentOverlay >= 9.3.0",
+      "ClickableTransparentOverlay >= 9.1.0",
       "swed64 >= 1.0.5"
     ]
   },
@@ -612,7 +612,7 @@
         "dependencies": {
           "ClickableTransparentOverlay": {
             "target": "Package",
-            "version": "[9.3.0, )"
+            "version": "[9.1.0, )"
           },
           "swed64": {
             "target": "Package",

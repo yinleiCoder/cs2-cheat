@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CS2Cheat")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f377dc7e68b113b26ec74bfde426e55b4f1616eb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e9c7fd33bd588b71d0f3a85aff46cc1fee6ca3aa")]
 [assembly: System.Reflection.AssemblyProductAttribute("CS2Cheat")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CS2Cheat")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

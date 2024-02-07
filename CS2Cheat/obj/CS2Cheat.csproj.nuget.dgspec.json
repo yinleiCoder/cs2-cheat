@@ -42,7 +42,7 @@
           "dependencies": {
             "ClickableTransparentOverlay": {
               "target": "Package",
-              "version": "[9.3.0, )"
+              "version": "[9.1.0, )"
             },
             "swed64": {
               "target": "Package",
